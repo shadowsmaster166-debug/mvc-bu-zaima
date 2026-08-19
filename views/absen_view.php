@@ -1,3 +1,15 @@
+<?php
+require_once "controllers/Absencontroller.php";
+
+$data = array_merge([
+    'mata_pelajaran' => '',
+    'kelas' => '',
+    'nama_guru' => '',
+    'bulan' => '',
+    'murid' => [],
+    'rekap' => []
+], $data ?? []);
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>

@@ -5,10 +5,12 @@ class Absensicontroller {
     private $model;
 
     public function __construct($dbConnection) {
+        // Inisialisasi Model dengan koneksi DB yang diberikan
         $this->model = new AbsensiModel($dbConnection);
     }
 
     public function index() {
+        // Parameter halaman / filter default
         $kelas = '12 RPL 3';
         $mata_pelajaran = 'Matematika';
         $nama_guru = 'Pak Joko';
@@ -21,6 +23,7 @@ class Absensicontroller {
             if (!empty($nama)) {
                 $this->model->insertMurid($nama, $kelas);
             }
+            // Pattern Post/Redirect/Get (PRG) untuk mencegah submit ganda
             header("Location: index.php");
             exit;
         }

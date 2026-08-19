@@ -2,10 +2,13 @@
 class AbsensiModel {
     private $db;
 
+    // Menerima koneksi PDO dari Controller/Entry Point
     public function __construct($dbConnection) {
         $this->db = $dbConnection;
     }
 
+    
+    //READ: Mengambil daftar murid berdasarkan kelas tertentu.
     public function getMuridByKelas($kelas) {
         $stmt = $this->db->prepare("SELECT * FROM murid WHERE kelas = ?");
         $stmt->execute([$kelas]);
