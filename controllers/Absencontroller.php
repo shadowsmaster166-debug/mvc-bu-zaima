@@ -12,8 +12,8 @@ class Absensicontroller {
     public function index() {
         // Parameter halaman / filter default
         $kelas = '12 RPL 3';
-        $mata_pelajaran = 'Matematika';
-        $nama_guru = 'Pak Joko';
+        $mata_pelajaran = 'Mapel Pilihan RPL';
+        $nama_guru = 'Bu Zaima';
         $bulan = 8;
         $tahun = 2026;
 

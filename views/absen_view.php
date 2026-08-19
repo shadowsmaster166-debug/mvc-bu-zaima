@@ -1,15 +1,3 @@
-<?php
-require_once "controllers/Absencontroller.php";
-
-$data = array_merge([
-    'mata_pelajaran' => '',
-    'kelas' => '',
-    'nama_guru' => '',
-    'bulan' => '',
-    'murid' => [],
-    'rekap' => []
-], $data ?? []);
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -64,10 +52,10 @@ $data = array_merge([
                 <tr>
                     <th rowspan="2" width="30">No</th>
                     <th rowspan="2" width="150">Nama Murid</th>
-                    <th colspan="30">Tanggal</th>
+                    <th colspan="31">Tanggal</th>
                 </tr>
                 <tr>
-                    <?php for($i = 1; $i <= 30; $i++): ?>
+                    <?php for($i = 1; $i <= 31; $i++): ?>
                         <th><?= $i ?></th>
                     <?php endfor; ?>
                 </tr>
@@ -78,12 +66,12 @@ $data = array_merge([
                     <td><?= $index + 1 ?></td>
                     <td class="text-left"><?= htmlspecialchars($m['nama_murid']) ?></td>
                     
-                    <?php for($hari = 1; $hari <= 30; $hari++): ?>
+                    <?php for($hari = 1; $hari <= 31; $hari++): ?>
                         <?php $status = $data['rekap'][$m['id']][$hari] ?? ''; ?>
                         <td>
                             <select name="status[<?= $m['id'] ?>][<?= $hari ?>]">
                                 <option value="" <?= $status == '' ? 'selected' : '' ?>></option>
-                                <option value="Hadir" <?= $status == 'Hadir' ? 'selected' : '' ?>>✓</option>
+                                <option value="Hadir" <?= $status == 'Hadir' ? 'selected' : '' ?>>Hadir</option>
                                 <option value="Ijin" <?= $status == 'Ijin' ? 'selected' : '' ?>>Ijin</option>
                                 <option value="Sakit" <?= $status == 'Sakit' ? 'selected' : '' ?>>Sakit</option>
                                 <option value="Alpha" <?= $status == 'Alpha' ? 'selected' : '' ?>>Alpha</option>
